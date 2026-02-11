@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VeleraCoreMS Docs</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <!-- Top Header -->
+  <header class="topbar">
+    <div class="topbar__left">
+      <button class="icon-btn" id="navToggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+      <a class="brand" href="./index.html">
+        <span class="brand__mark">V</span>
+        <span class="brand__name">Velera</span>
+        <span class="brand__divider">/</span>
+        <span class="brand__product">VeleraCoreMS</span>
+      </a>
+    </div>
+
+    <div class="topbar__center">
+      <div class="search">
+        <input type="search" placeholder="Search docs…" aria-label="Search docs" disabled />
+        <span class="search__hint">⌘K</span>
+      </div>
+    </div>
+
+    <nav class="topbar__right">
+      <a class="toplink" href="#" title="GitHub (placeholder)">GitHub</a>
+      <a class="toplink" href="#" title="API Reference (placeholder)">API</a>
+      <a class="toplink" href="#" title="Status (placeholder)">Status</a>
+    </nav>
+  </header>
+
+  <!-- App Layout -->
+  <div class="layout">
+    <!-- Left Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__section">
+        <div class="sidebar__title">Introduction</div>
+        <a class="sidebar__link active" href="./index.html">What is VeleraCoreMS?</a>
+        <a class="sidebar__link" href="./memory-vs-data.html">Memory vs Data</a>
+        <a class="sidebar__link" href="./phased-adoption.html">Phased Adoption Model</a>
+      </div>
+
+      <div class="sidebar__section">
+        <div class="sidebar__title">Core Concepts</div>
+        <a class="sidebar__link" href="./cmo.html">Canonical Memory Object (CMO)</a>
+        <a class="sidebar__link" href="./immutability.html">Immutable Memory Ledger</a>
+        <a class="sidebar__link" href="./relevance-plane.html">Relevance Plane</a>
+        <a class="sidebar__link" href="./provenance.html">Identity & Provenance</a>
+      </div>
+
+      <div class="sidebar__section">
+        <div class="sidebar__title">Architecture</div>
+        <a class="sidebar__link" href="./architecture-overview.html">System Overview</a>
+        <a class="sidebar__link" href="./storage-layer.html">Storage Layer</a>
+        <a class="sidebar__link" href="./rfe.html">Relevance & Feedback Engine</a>
+        <a class="sidebar__link" href="./replication.html">Replication</a>
+      </div>
+
+      <div class="sidebar__section">
+        <div class="sidebar__title">Testing</div>
+        <a class="sidebar__link" href="./guarantees.html">Guarantees</a>
+        <a class="sidebar__link" href="./test-mapping.html">Requirement → Test Mapping</a>
+      </div>
+
+      <div class="sidebar__footer">
+        <div class="pill">Modern developer-native docs</div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <article class="doc">
+        <div class="doc__meta">
+          <span class="badge">VeleraCoreMS</span>
+          <span class="dot">•</span>
+          <span class="muted">Introduction</span>
+        </div>
+
+        <h1>What is VeleraCoreMS?</h1>
+
+        <p class="lede">
+          VeleraCoreMS (Velera Memory System) is a deterministic memory infrastructure that stores experiences
+          as immutable memory—separate from relevance and interpretation.
+        </p>
+
+        <h2>Why it exists</h2>
+        <p>
+          Traditional stacks store <strong>state</strong> and rebuild meaning through pipelines: ingestion, transforms,
+          derived datasets, backfills, and feature stores. Over time, the stack drifts—logic changes, datasets duplicate,
+          and “truth” becomes a moving target.
+        </p>
+
+        <p>
+          VeleraCoreMS takes a different stance:
+          <strong>store memory once, forever</strong>. Keep it inspectable. Let relevance evolve independently.
+        </p>
+
+        <h2>The core idea</h2>
+        <div class="callout">
+          <p>
+            <strong>Velera stores memory.</strong><br/>
+            Interpretation can change. Relevance can change.<br/>
+            The past remains readable.
+          </p>
+        </div>
+
+        <h2>What you get</h2>
+        <ul>
+          <li><strong>Immutable Memory Ledger</strong> — append-only storage for Canonical Memory Objects (CMOs).</li>
+          <li><strong>Deterministic identity</strong> — the same logical CMO yields the same bytes and hash.</li>
+          <li><strong>Relevance Plane</strong> — metadata can update repeatedly without changing memory.</li>
+          <li><strong>Replay-free architecture</strong> — backfills and rebuilds become unnecessary for many workloads.</li>
+          <li><strong>Auditability</strong> — past decisions remain inspectable even as behavior evolves.</li>
+        </ul>
+
+        <h2>Phased adoption</h2>
+        <div class="grid2">
+          <div class="card">
+            <div class="card__title">Phase 1</div>
+            <p class="muted">Existing systems remain unchanged.</p>
+            <ul>
+              <li>Velera captures memory in parallel</li>
+              <li>Zero risk, immediate historical value</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card__title">Phase 2</div>
+            <p class="muted">Interpretation moves out of pipelines.</p>
+            <ul>
+              <li>Databases/warehouses become materialized views</li>
+              <li>BI/ML consume interpretations, not raw data</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card__title">Phase 3</div>
+            <p class="muted">ETL pipelines are eliminated.</p>
+            <ul>
+              <li>Replay/backfills disappear</li>
+              <li>Feature stores collapse</li>
+              <li>Warehouses shrink or vanish for many workloads</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="sep" />
+
+        <div class="pager">
+          <div></div>
+          <a class="pager__next" href="./memory-vs-data.html">
+            Next: Memory vs Data →
+          </a>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
